@@ -1,17 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Code+Pro:wght@300;400;500&display=swap');
 
+
 :root {
-    --blue-aqua: #70C6C7;
+    --font-color: #f1f3f5;
+    --background-color: #090e22;
+    --transition-color: #fff;
     --blue-mid: #1d1e33;
-    --blue-deep: #090e22;
     --gray: #444;
     --yellow: #FDB44B;
+    --background-footer: linear-gradient(to bottom, #495057, #212529);
 
     --font-main: 'Source Code Pro', monospace;
     --font-second: 'Bebas Neue', cursive;
 }
 
+.dark {
 
+    --font-color: #212D3A;
+    --blue-mid: #1d1e33;
+    --background-color: #f1f3f5;
+    --transition-color: #212D3A;
+    --gray: #444;
+    --yellow: #FDB44B;
+    
+}
 
 * {
     margin: 0;
@@ -23,50 +35,99 @@
 body {
     width: 100%;
     height: 100vh;
+    background-color: var(--background-color);
   }
   
   body::after {
     content: "";
-    background-color: var(--blue-mid);
+    /* background-color: var(--blue-mid); */
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
     z-index: -1;
+    transition: background 0.2s linear;
+  }
+
+
+  .theme {
+    position: absolute;
+    right: 2rem;
+    top: 1.5rem;
+  }
+
+  body.dark {
+    background: var(--background-color);
+  }
+
+  .checkbox {
+    opacity: 0;
+    position: absolute;
+  }
+
+  .label {
+    background-color: #111;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    position: relative;
+    height: 26px;
+    width: 50px;
+    transform: scale(1.5);
+  }
+
+  .label .ball {
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: 22px;
+    width: 22px;
+    transform: translateX(0px);
+    transition: transform 0.2s linear;
+  }
+
+  .checkbox:checked + .label .ball {
+    transform: translateX(24px);
+  }
+
+  .fa-moon {
+    color: #f1c40f;
+  }
+
+  .fa-sun {
+    color: #f39c12;
   }
 
 .header_container {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    gap: 1rem;
-    top: 0;
-    height: 3.75rem;
-    width: 100%;
-    background-color: var(--blue-deep);
+    height: 15vh;
 }
 
-.header_icon{
-    color: var(--blue-aqua);
+svg {
+    color: var(--font-color);
     height: 100%;
-    background-color: var(--blue-deep);
+    width: 10rem;
 }
 
 .header_title {
     font-size: 4rem;
     font-weight: 400;
-    height: 100%;
     font-family: var(--font-second);
-    color: var(--blue-aqua);
-    background-color: var(--blue-deep);
+    color: var(--font-color);
 }
 
 .container {
     display: flex;
     justify-content: center;
-    height: 70vh;
+    height: 80vh;
     width: 100%;
     padding: 2rem 4rem;
     gap: 1rem;
@@ -77,7 +138,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .output_section {
@@ -88,14 +149,12 @@ body {
 }
 
 .input_box {
-    background: var(--blue-deep);
+    background: var(--background-color);
     resize: none;
-    border: 1px solid var(--blue-aqua);
+    border: 1px solid var(--font-color);
     border-radius: 15px;
-    color: var(--blue-aqua);
-    margin-top: 90px;
+    color: var(--font-color);
     text-transform: lowercase;
-    background-color: var(--blue-deep);
     width: 90%;
     height: 80%;
     max-width: 100%;
@@ -108,22 +167,18 @@ body {
     flex-shrink: 1;
 }
 
-::placeholder {color: var(--blue-aqua);}
+::placeholder {color: var(--font-color);}
     .input_box:focus{
         outline: none;
     }
 
 .output_box {
-    background-image: url(/assets/image/lupa.png);
-    background-position: center;
-    background-repeat: no-repeat;
     resize: none;
-    border: 1px solid var(--blue-aqua);
+    border: 1px solid var(--font-color);
     border-radius: 15px;
-    color: var(--blue-aqua);
-    margin-top: 90px;
+    color: var(--font-color);
     text-transform: lowercase;
-    background-color: var(--blue-deep);
+    background-color: var(--background-color);
     width: 90%;
     height: 80%;
     max-width: 100%;
@@ -140,17 +195,20 @@ body {
     outline: none;
 }
 
-.left_buttons {
+.right_buttons {
     display: flex;
-    flex-direction: row;
-    margin-top: 18px;
+    flex-direction: column;
 }
 
 .decrypt-btn {
-    background: var(--blue-deep);
-    border: 1px solid var(--blue-aqua);
+    /* background: var(--background-color);
+    border: 1px solid var(--font-color);
     border-radius: 15px;
-    color: var(--blue-aqua);
+    color: var(--font-color); */
+    background-color: var(--font-color);
+    border: 1px solid var(--font-color);
+    border-radius: 15px;
+    color: var(--background-color);
     cursor: pointer;
     margin-left: 1.5rem;
     height: 5vh;
@@ -158,38 +216,52 @@ body {
     font-size: 1.8rem;
     flex-grow: 1;
     flex-shrink: 1;
+    opacity: 0.9;
 }
 
 .encrypt-btn {
-    background-color: var(--blue-aqua);
-    border: 1px solid var(--blue-aqua);
+    background-color: var(--font-color);
+    border: 1px solid var(--font-color);
     border-radius: 15px;
-    color: var(--blue-deep);
+    color: var(--background-color);
     cursor: pointer;
     height: 5vh;
     width: 25vh;
     font-size: 1.8rem;
     flex-grow: 1;
     flex-shrink: 1;
+    opacity: 0.9;
 }
 
-.right_buttons {
+.left_buttons {
     display: flex;
-    flex-direction: column;
-    margin-top: 18px;  
+    flex-direction: row;
 }
 
 .copy-btn {
-    background: var(--blue-deep);
-    border: 1px solid var(--blue-aqua);
+    background-color: var(--font-color);
+    border: 1px solid var(--font-color);
     border-radius: 15px;
-    color: var(--blue-aqua);
+    color: var(--background-color);
     cursor: pointer;
     height: 5vh;
     width: 15vh;
     font-size: 1.8rem;
     flex-grow: 1;
     flex-shrink: 1;
+    opacity: 0.9;
+}
+
+.transition {
+    transition: transform 0.2s;
+    transition: background-color 0.2s;
+    transition: opacity 0.2s;
+}
+
+.transition:hover {
+    transform: scale(1.1);
+    background-color: var(--transition-color);
+    opacity: 100%;
 }
 
 .footer_container {
@@ -202,30 +274,28 @@ body {
     right: 0;
     height: 3.75rem;
     width: 100%;
-    background-color: var(--blue-deep);
+    background-image: var(--background-footer);
 }
 
 .github-icon {
     width: 100%;
     height: 3.75rem;
     align-self: center;
-    background-color: var(--blue-deep);
 }
 
 .linkedin-icon {
     width: 100%;
     height: 3.75rem;
     align-self: center;
-    background-color: var(--blue-deep);
 }
 
 @media (max-width: 1100px) {
-    .header_container {
-        height: 2.5rem;
+    svg {
+        height: 90%;
     }
 
     .header_title {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
     }
 
     .footer_container {
@@ -243,14 +313,13 @@ body {
 }
 
 @media (max-width: 660px) {
-    .header_container{
-        height: 2.5rem;
+
+    svg {
+        display: none;
     }
 
-
-
     .header_title {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 
     .footer_container {
@@ -267,7 +336,6 @@ body {
 
     .container {
         flex-direction: column;
-        margin-top: 70px;
     }
 
     .input_section {
@@ -280,7 +348,7 @@ body {
         display: flex;
         flex-wrap: wrap;
         height: 50%;
-        margin-top: 60px;
+        margin-top: 40px;
     }
 
     .output_box {
@@ -296,7 +364,7 @@ body {
     .left_buttons {
         flex-direction: column;
         align-items: center;
-        margin-bottom: 10px;
+        margin-top: 9.5px;
         gap: 7px;
     }
 
