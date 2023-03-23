@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Code+Pro:wght@300;400;500&display=swap');
+
+:root {
+    --blue-aqua: #70C6C7;
+    --blue-mid: #1d1e33;
+    --blue-deep: #090e22;
+    --gray: #444;
+    --yellow: #FDB44B;
+
+    --font-main: 'Source Code Pro', monospace;
+    --font-second: 'Bebas Neue', cursive;
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-main);
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+  }
+  
+  body::after {
+    content: "";
+    background-color: var(--blue-mid);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+  }
+
+.header_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    gap: 1rem;
+    top: 0;
+    height: 3.75rem;
+    width: 100%;
+    background-color: var(--blue-deep);
+}
+
+.header_icon{
+    color: var(--blue-aqua);
+    height: 100%;
+    background-color: var(--blue-deep);
+}
+
+.header_title {
+    font-size: 4rem;
+    font-weight: 400;
+    height: 100%;
+    font-family: var(--font-second);
+    color: var(--blue-aqua);
+    background-color: var(--blue-deep);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    height: 70vh;
+    width: 100%;
+    padding: 2rem 4rem;
+    gap: 1rem;
+
+}
+
+.input_section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.output_section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: baseline;
+    align-items: baseline;
+}
+
+.input_box {
+    background: var(--blue-deep);
+    resize: none;
+    border: 1px solid var(--blue-aqua);
+    border-radius: 15px;
+    color: var(--blue-aqua);
+    margin-top: 90px;
+    text-transform: lowercase;
+    background-color: var(--blue-deep);
+    width: 90%;
+    height: 80%;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 20px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+::placeholder {color: var(--blue-aqua);}
+    .input_box:focus{
+        outline: none;
+    }
+
+.output_box {
+    background-image: url(/assets/image/lupa.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    resize: none;
+    border: 1px solid var(--blue-aqua);
+    border-radius: 15px;
+    color: var(--blue-aqua);
+    margin-top: 90px;
+    text-transform: lowercase;
+    background-color: var(--blue-deep);
+    width: 90%;
+    height: 80%;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 20px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.output_box:focus {
+    outline: none;
+}
+
+.left_buttons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 18px;
+}
+
+.decrypt-btn {
+    background: var(--blue-deep);
+    border: 1px solid var(--blue-aqua);
+    border-radius: 15px;
+    color: var(--blue-aqua);
+    cursor: pointer;
+    margin-left: 1.5rem;
+    height: 5vh;
+    width: 25vh;
+    font-size: 1.8rem;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.encrypt-btn {
+    background-color: var(--blue-aqua);
+    border: 1px solid var(--blue-aqua);
+    border-radius: 15px;
+    color: var(--blue-deep);
+    cursor: pointer;
+    height: 5vh;
+    width: 25vh;
+    font-size: 1.8rem;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.right_buttons {
+    display: flex;
+    flex-direction: column;
+    margin-top: 18px;  
+}
+
+.copy-btn {
+    background: var(--blue-deep);
+    border: 1px solid var(--blue-aqua);
+    border-radius: 15px;
+    color: var(--blue-aqua);
+    cursor: pointer;
+    height: 5vh;
+    width: 15vh;
+    font-size: 1.8rem;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.footer_container {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    gap: 1rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3.75rem;
+    width: 100%;
+    background-color: var(--blue-deep);
+}
+
+.github-icon {
+    width: 100%;
+    height: 3.75rem;
+    align-self: center;
+    background-color: var(--blue-deep);
+}
+
+.linkedin-icon {
+    width: 100%;
+    height: 3.75rem;
+    align-self: center;
+    background-color: var(--blue-deep);
+}
+
+@media (max-width: 1100px) {
+    .header_container {
+        height: 2.5rem;
+    }
+
+    .header_title {
+        font-size: 2.5rem;
+    }
+
+    .footer_container {
+        height: 2.5rem;
+    }
+
+    .linkedin-icon {
+        height: 2.5rem;
+    }
+
+    .github-icon {
+        height: 2.5rem;
+    }
+
+}
+
+@media (max-width: 660px) {
+    .header_container{
+        height: 2.5rem;
+    }
+
+
+
+    .header_title {
+        font-size: 2.5rem;
+    }
+
+    .footer_container {
+        height: 2.5rem;
+    }
+
+    .linkedin-icon {
+        height: 2.5rem;
+    }
+
+    .github-icon {
+        height: 2.5rem;
+    }
+
+    .container {
+        flex-direction: column;
+        margin-top: 70px;
+    }
+
+    .input_section {
+        display: flex;
+        flex-wrap: wrap;
+        height: 50%;
+    }
+    
+    .output_section {
+        display: flex;
+        flex-wrap: wrap;
+        height: 50%;
+        margin-top: 60px;
+    }
+
+    .output_box {
+        margin-top: 0;
+        background-size: 100px;
+    }
+
+    .input_box {
+        margin-top: 0;
+        font-size: 1.5rem;
+    }
+
+    .left_buttons {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+        gap: 7px;
+    }
+
+
+    .encrypt-btn {
+        height: 5vh;
+        width: 100%;
+        padding: 3px;
+        font-size: 1.5rem;
+    }
+    
+    .decrypt-btn {
+        height: 5vh;
+        width: 100%;
+        margin-left: 0;
+        padding: 3px;
+        font-size: 1.5rem;
+    }
+
+    .copy-btn {
+        height: 5vh;
+        width: 100%;
+        padding: 5px;
+        font-size: 1.5rem;
+    }
+
+
+}
+
+
