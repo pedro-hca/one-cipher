@@ -163,8 +163,6 @@ svg {
     font-size: 1.8rem;
     font-weight: 500;
     line-height: 1.5rem;
-    flex-grow: 1;
-    flex-shrink: 1;
 }
 
 ::placeholder {color: var(--font-color);}
@@ -187,8 +185,7 @@ svg {
     font-size: 1.8rem;
     font-weight: 500;
     line-height: 1.5rem;
-    flex-grow: 1;
-    flex-shrink: 1;
+
 }
 
 .output_box:focus {
